@@ -60,5 +60,5 @@ def list_buckets_html():
     # Renderizar la plantilla HTML
     return render_template_string(html_template)
 
-if _name_ == '__main__':
+if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
