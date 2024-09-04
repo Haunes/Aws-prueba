@@ -28,6 +28,9 @@ jobs:
           ENVIRONMENT: production
       
         run: |
+          echo "EC2_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}"
+          echo "SERVER_IP: ${{ secrets.SSH_HOST }}"
+          echo "EC2_USER: ${{ secrets.USER_NAME }}"
           echo "$EC2_PRIVATE_KEY" > ec2_key && chmod 600 ec2_key
           ssh -o StrictHostKeyChecking=no -i ec2_key ${EC2_USER}@${SERVER_IP} '
               # Acceder al directorio del proyecto
